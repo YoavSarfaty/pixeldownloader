@@ -3,8 +3,8 @@ A YouTube Playlist or Video Downloader
 
 You can use it with node:
 
-`node main.js [youtube url] [format (mp3 by default)]`
+`node main.js [-t target] [-f format] YouTubeURL`
 
 or with the executable for your operating system:
 
-`pixeldownloader [youtube url] [format (mp3 by default)]`
+`pixeldownloader [-t target] [-f format] YouTubeURL`
