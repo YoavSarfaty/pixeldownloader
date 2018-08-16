@@ -61,7 +61,7 @@ let options = commandLineArgs(optionDefinitions)
 let urls = [];
 let input = options.url;
 let format = options.format;
-let time = 0;
+let current = 0;
 
 if (input == '' || options.help) {
   console.log(commandLineUsage([{
@@ -114,37 +114,51 @@ if (input == '' || options.help) {
 }
 
 function startdownload() {
-  urls.forEach((url) => {
-    setTimeout(() => {
+  if (current >= urls.length) {
+    console.log("Done!");
+    return;
+  }
+  let url = urls[current];
+  try {
+    ytdl.getInfo(url, (err, info) => {
       try {
-        ytdl.getInfo(url, (err, info) => {
-          try {
-            if (err) throw err;
-            try {
-              let name = info.title;
-              path = options.target + formatname(name) + '.' + format;
-              if ((!fs.existsSync(path)) || options.override) {
-                if (!options.quiet) {
-                  console.log("now downloading " + name + " -> " + path);
-                }
-                ytdl(url, {
-                    format: format
-                  })
-                  .pipe(fs.createWriteStream(path));
-              }
-            } catch (e) {
-              console.log("catch " + e);
+        if (err) throw err;
+        try {
+          let name = info.title;
+          path = options.target + formatname(name) + '.' + format;
+          if ((!fs.existsSync(path)) || options.override) {
+            if (!options.quiet) {
+              console.log("now downloading " + name + " -> " + path);
             }
-          } catch (e) {
-            console.log(e);
+            // ytdl(url, {
+            //     format: format
+            //   })
+            let video = ytdl(url, {
+              filter: (f) => {
+                if (format === "mp3") return f.container === "m4a";
+                return f.container === format;
+              }
+            });
+
+            video.pipe(fs.createWriteStream(path));
+            video.on('end', () => {
+              current++;
+              startdownload();
+            });
+          } else {
+            current++;
+            startdownload();
           }
-        });
+        } catch (e) {
+          console.log("catch " + e);
+        }
       } catch (e) {
-        console.log("catch " + e);
+        console.log(e);
       }
-    }, time);
-    time += 5000;
-  });
+    });
+  } catch (e) {
+    console.log("catch " + e);
+  }
 }
 
 function formatname(name) {
