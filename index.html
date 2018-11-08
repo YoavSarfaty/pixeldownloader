@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+  <title>pixeldownloader</title>
+  <script src="main.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="close_buttons">
+    <button type="button" name="button" id="close_button" onclick="win.close()">x</button>
+    <button type="button" name="button" id="mini_button" onclick="win.minimize()">-</button>
+    <button type="button" name="button" id="reload_button" onclick="document.location.reload()">
+      <img src="/icons/reload.png" width="18" height="18" alt="submit" />
+    </button>
+  </div>
+  <div id="main_div">
+    <div id="firs_row">
+      <input type="text" name="url" placeholder="YouTube Video or Playlist URL" id="url_input">
+      <select name="format" id="format_input">
+        <option value="audio">Audio</option>
+        <option value="video">Video</option>
+      </select>
+      <select name="type" id="type_input">
+        <option class="audio_types" value="mp3">mp3</option>
+        <option class="audio_types" value="aac">AAC</option>
+        <option class="audio_types" value="m4a">m4a</option>
+        <option class="audio_types" value="wav">WAV</option>
+        <option class="audio_types" value="ogg">OGG</option>
+
+        <option class="video_types" value="mp4">mp4 (Highest Resolution)</option>
+        <option class="video_types" value="mp4 1080p">mp4 1080p</option>
+        <option class="video_types" value="mp4 720p">mp4 720p</option>
+        <option class="video_types" value="mp4 480p">mp4 480p</option>
+        <option class="video_types" value="mp4 360p">mp4 360p</option>
+        <option class="video_types" value="mp4 240p">mp4 240p</option>
+        <option class="video_types" value="mp4 144p">mp4 144p</option>
+
+        <option class="video_types" value="webm">webm (Highest Resolution)</option>
+        <option class="video_types" value="webm 1080p">webm 1080p</option>
+        <option class="video_types" value="webm 720p">webm 720p</option>
+        <option class="video_types" value="webm 480p">webm 480p</option>
+        <option class="video_types" value="webm 360p">webm 360p</option>
+        <option class="video_types" value="webm 240p">webm 240p</option>
+        <option class="video_types" value="webm 144p">webm 144p</option>
+
+        <option class="video_types" value="avi">avi (Highest Resolution)</option>
+        <option class="video_types" value="avi 1080p">avi 1080p</option>
+        <option class="video_types" value="avi 720p">avi 720p</option>
+        <option class="video_types" value="avi 480p">avi 480p</option>
+        <option class="video_types" value="avi 360p">avi 360p</option>
+        <option class="video_types" value="avi 240p">avi 240p</option>
+        <option class="video_types" value="avi 144p">avi 144p</option>
+
+        <option class="video_types" value="gif 360p">GIF</option>
+      </select>
+      <button type="button" name="start" onclick="handleUserData()" id="start_button">
+        <img src="/icons/download.png" width="20" height="20" alt="submit" />
+      </button>
+    </div>
+    <div id="second_row">
+      <div id="override_div">
+        <div style="width: 100%;">
+          <span id="overide_text">Overwrite Existing Files:</span>
+          <input type="checkbox" id="override_input">
+        </div>
+      </div>
+      <div id="select_output_div">
+        <input type="text" id="save_loc_show" placeholder="Output Folder">
+        <button onclick="document.getElementById('folder_input').click();" id="folder_select_button">
+          <img src="/icons/folder.png" width="20" height="20" alt="submit" />
+        </button>
+        <input type="file" id="folder_input" onchange="changedSaveDir()" nwdirectory style="visibility: hidden;width: 0px;" />
+      </div>
+    </div>
+    <div id="downloaders">
+      <div class="downloader" id="d1">
+        <img src="">
+        <div class="loadingbar">
+          <div class="loadingbar_inside"></div>
+        </div>
+      </div>
+      <div class="downloader" id="d2">
+        <img src="">
+        <div class="loadingbar">
+          <div class="loadingbar_inside"></div>
+        </div>
+      </div>
+      <div class="downloader" id="d3">
+        <img src="">
+        <div class="loadingbar">
+          <div class="loadingbar_inside"></div>
+        </div>
+      </div>
+      <div class="downloader" id="d4">
+        <img src="">
+        <div class="loadingbar">
+          <div class="loadingbar_inside"></div>
+        </div>
+      </div>
+    </div>
+    <div id="downloaders_alt">
+      <p>Your Downloades Will Be Displayed Here</p>
+    </div>
+    <div id="end">
+      <p>Thanks For Using Pixel Downloader</p>
+      <p>If You Liked It You Might Consider Donating</p>
+      <img src="icons/bitcoin.png">
+    </div>
+    <p id="progress"></p>
+    <p id="credit">Pixel Downloader created by Yoav Sarfaty © 2018. <br>
+      <a href="http://www.github.com/YoavSarfaty/pixeldownloader" onclick="gui.Shell.openExternal(this.href); return false;">github.com/YoavSarfaty/pixeldownloader</a></p>
+  </div>
+</body>

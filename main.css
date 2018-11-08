@@ -1,0 +1,274 @@
+:root {
+  --main-background-color: rgb(21, 42, 76);
+  --main-text-color: rgb(20, 20, 20);
+  --inputs-background-color: rgb(120, 120, 120);
+  --button-color: rgb(50, 50, 50);
+  --button-color-hover: rgb(30, 30, 30);
+}
+
+body {
+  pointer-events: none;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 15px;
+  border: 15px solid var(--main-background-color);
+  width: 370px;
+  height: 570px;
+  -webkit-app-region: drag;
+  overflow: hidden;
+}
+
+button {
+  -webkit-app-region: no-drag;
+  background-color: var(--button-color);
+  color: white;
+  z-index: 10;
+}
+
+button:hover {
+  background-color: var(--button-color-hover);
+}
+
+button>img {
+  filter: invert(100%);
+}
+
+#close_buttons {
+  pointer-events: all;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+#close_button:hover {
+  background-color: red;
+}
+
+#close_button {
+  width: 30px;
+  height: 30px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 0px;
+}
+
+#mini_button {
+  width: 30px;
+  height: 30px;
+  /* border-top-right-radius: 15px; */
+  /* border-bottom-right-radius: 15px; */
+  border: 0px;
+}
+
+#reload_button {
+  width: 30px;
+  height: 30px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 0px;
+}
+
+#reload_button>img {
+  padding-top: 3px;
+}
+
+#top {
+  pointer-events: none;
+  height: 30px;
+  width: 400px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 15px;
+  /* border-top: 15px solid pink; */
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(1, rgb(0, 0, 0)));
+  -webkit-app-region: drag;
+}
+
+#main_div {
+  pointer-events: all;
+  padding-top: 50px;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-background-color);
+  text-align: center;
+  font-family: arial;
+  -webkit-app-region: no-drag;
+}
+
+input {
+  text-align: center;
+}
+
+::placeholder {
+  color: var(--main-text-color);
+}
+
+#url_input, #save_loc_show, button, select {
+  float: left;
+}
+
+#firs_row, #second_row {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+}
+
+#second_row {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#url_input {
+  height: 100%;
+  width: 220px;
+  padding: 0px;
+  border: 0px;
+  background: var(--inputs-background-color);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#format_input, #type_input {
+  height: 100%;
+  width: 60px;
+  padding: 0px;
+  border: 0px;
+  background: var(--inputs-background-color);
+}
+
+#start_button, #folder_select_button {
+  width: 30px;
+  height: 100%;
+  padding: 0px;
+  border: 0px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#save_loc_show {
+  height: 100%;
+  width: 140px;
+  padding: 0px;
+  border: 0px;
+  background: var(--inputs-background-color);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#override_div {
+  width: 200px;
+  height: 100%;
+  background: var(--inputs-background-color);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--main-text-color);
+}
+
+#override_input {
+  vertical-align: middle;
+  transform: scale(1.5);
+}
+
+#downloaders {
+  padding-top: 20px;
+  width: 370px;
+  height: 370px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#downloaders_alt {
+  margin-top: 50px;
+  width: 350px;
+  height: 350px;
+  display: grid;
+  color: rgb(200, 200, 200);
+  font-size: 18px;
+  display: table;
+}
+
+#downloaders_alt>p {
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 200px;
+}
+
+#credit {
+  width: 370px;
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+  color: rgb(200, 200, 200);
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: rgb(200, 200, 200);
+}
+
+.downloader {
+  margin: 10px;
+  background-color: rgb(11, 32, 66);
+  width: 100%-10px;
+  height: 100%-10px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.downloader>img {
+  position: relative;
+  top: 10px;
+  border: 0px;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.downloader>.loadingbar {
+  position: relative;
+  top: 15px;
+  width: 130px;
+  height: 20px;
+  background-color: rgb(50, 50, 50);
+  ;
+  border-radius: 15px;
+  margin-left: 15px;
+}
+
+.downloader>.loadingbar>.loadingbar_inside {
+  top: 100px;
+  width: 40%;
+  height: 20px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 15px;
+}
+
+#progress {
+  width: 370px;
+  font-size: 18px;
+  position: absolute;
+  bottom: 40px;
+  color: rgb(200, 200, 200);
+}
+
+#end {
+  margin-top: 20px;
+  width: 100%;
+  height: 350px;
+  display: grid;
+  color: rgb(200, 200, 200);
+  font-size: 18px;
+}
+
+#end>p {
+  padding: 0px;
+  margin: 5px;
+}
+
+#end>img {
+  width: 100%;
+}

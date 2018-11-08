@@ -1,0 +1,24 @@
+{
+  "main": "index.html",
+  "name": "PixelDownloader",
+  "version": "v0.3.0",
+  "description": "PixelDownloader: The best Video downloading tool, free and open-source, created by yoav sarfaty",
+  "window": {
+    "title": "PixelDownloader",
+    "icon": "icon.png",
+    "transparent": true,
+    "frame": false,
+    "width": 400,
+    "height": 600,
+    "min_width": 400,
+    "min_height": 600,
+    "max_width": 400,
+    "max_height": 600
+  },
+  "dependencies": {
+    "is-playlist": "^1.0.0",
+    "sanitize-filename": "^1.6.1",
+    "ytdl-core": "^0.26.1",
+    "ytpl": "^0.1.13"
+  }
+}
