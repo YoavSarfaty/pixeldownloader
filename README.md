@@ -14,7 +14,7 @@ To run it, firstly download and install all the dependencies with `npm install`.
 
 Then create a directory named `ffmpeg` and put the [ffmpeg executable](https://ffmpeg.org/download.html) there.
 
-Then install nwbuild with npm `npm install nw-builder`.
+Then install nwbuild with npm `npm install nw-builder --save-dev`.
 
 Then run it with `nwbuild -r .`.
 
