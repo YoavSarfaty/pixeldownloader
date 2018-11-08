@@ -12,7 +12,7 @@ body {
   padding: 0px;
   border-radius: 15px;
   border: 15px solid var(--main-background-color);
-  width: 370px;
+  width: 371px;
   height: 570px;
   -webkit-app-region: drag;
   overflow: hidden;

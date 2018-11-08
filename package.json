@@ -22,5 +22,8 @@
     "sanitize-filename": "^1.6.1",
     "ytdl-core": "^0.26.1",
     "ytpl": "^0.1.13"
+  },
+  "devDependencies": {
+    "nw-builder": "^3.5.4"
   }
 }
